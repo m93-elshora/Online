@@ -1,0 +1,50 @@
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  background-color: #afdaeb;
+  border-radius: 0 50px 50px 0;
+}
+
+.right-side {
+  color: white;
+  position: relative;
+}
+
+.elevate-color {
+  color: #00bcd4;
+}
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+.auth-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* الشريط السفلي للأيقونات */
+
+.social-bar {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.social-bar i {
+  font-size: 1.5rem;
+  color: #00bcd4;
+  transition: 0.3s;
+}
+
+.social-bar i:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
