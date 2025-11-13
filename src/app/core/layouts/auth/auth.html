@@ -1,0 +1,36 @@
+<div class="auth-container d-flex vh-100">
+
+  <div class="left-side shadow overflow-hidden w-50 d-flex flex-column justify-content-center align-items-center text-center p-4">
+    <h1 class="fw-bold mt-2">
+      Welcome to <br />
+      <span class="elevate-color">Elevate</span>
+    </h1>
+    <p class="fs-4">Quidem autem voluptatibus qui quaerat aspernatur architecto natus</p>
+    <img src="./images/bro.png" alt="welcome" class="w-75" />
+  </div>
+
+
+  <div class="right-side w-50 d-flex flex-column justify-content-center align-items-center position-relative p-4">
+
+    <app-navbar layout="auth" />
+    <router-outlet />
+
+
+    <div
+      class="social-bar d-block justify-content-center align-items-center gap-3  bottom-40 pb-3 w-100 flex-column"
+    >
+      <p class="lines-start-end text-gray-700 text-center mb-2">Or Continue with</p>
+      <div class="d-flex justify-content-center gap-3">
+        <button class="social-btn google" (click)="loginWith('google')"><i class="fa-brands fa-google"></i></button>
+        <button class="social-btn twitter" (click)="loginWith('twitter')"><i class="fa-brands fa-twitter"></i></button>
+        <button class="social-btn facebook" (click)="loginWith('facebook')"><i class="fa-brands fa-facebook"></i></button>
+        <button class="social-btn apple" (click)="loginWith('apple')"><i class="fa-brands fa-apple"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

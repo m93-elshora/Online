@@ -1,0 +1,6 @@
+<form [formGroup]="authForm" (ngSubmit)="submitForm()" class="p-4">
+  <h2 class="text-center mb-3">Enter Verification Code</h2>
+  <input type="text" placeholder="Enter Code" formControlName="code" class="form-control mb-3">
+  <button class="btn btn-info w-100">Verify</button>
+
+</form>
