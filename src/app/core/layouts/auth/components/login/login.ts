@@ -4,6 +4,11 @@ import { RouterModule, Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../services/auth';
 import { ValidtionMassg } from "../../../../../shared/components/validtion-massg/validtion-massg";
+import {
+  passwordStrengthValidator,
+  customEmailValidator,
+  
+} from 'auth';
 
 
 @Component({
@@ -23,8 +28,8 @@ export class Login implements OnInit {
 
   authForm = this.fb.group(
     {
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [ Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/),]],
+      email: ['', [Validators.required, customEmailValidator]],
+      password: ['', [ Validators.required, passwordStrengthValidator]],
     },
 
   );

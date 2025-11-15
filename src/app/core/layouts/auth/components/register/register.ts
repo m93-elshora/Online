@@ -9,10 +9,17 @@ import {
 import { Router } from '@angular/router';
 import { ValidtionMassg } from '../../../../../shared/components/validtion-massg/validtion-massg';
 import { Auth } from '../../services/auth';
+import {
+  passwordMatchValidator,
+  passwordStrengthValidator,
+  customEmailValidator,
+  egyptPhoneValidator,
+  usernameValidator
+} from 'auth';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, ValidtionMassg],
+  imports: [ReactiveFormsModule, ValidtionMassg,],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
@@ -27,14 +34,14 @@ export class Register implements OnInit  {
   formInit() {
     this.authForm = this.fb.group(
       {
-        firstName: ['', [Validators.required, Validators.minLength(5)]],
-        lastName: ['', [Validators.required, Validators.maxLength(20)]],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)]],
-        rePassword: ['', [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)]],
-        phone: ['', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]],
+        firstName: ['', [Validators.required, usernameValidator]],
+        lastName: ['', [Validators.required, usernameValidator]],
+        email: ['', [Validators.required, customEmailValidator]],
+        password: ['', [Validators.required, passwordStrengthValidator]],
+        rePassword: ['', [Validators.required]],
+        phone: ['', [Validators.required, egyptPhoneValidator]],
       },
-      { validators: this.passwordMatchValidator }
+      { validator:[passwordMatchValidator ] }
     );
   }
 
