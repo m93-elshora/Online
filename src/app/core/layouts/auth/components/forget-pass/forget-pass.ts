@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from 'express';
+
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-forget-pass',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './forget-pass.html',
   styleUrl: './forget-pass.css',
 })
@@ -21,7 +22,7 @@ export class ForgetPass {
   submitForm() {
     if (this.authForm.valid) {
       console.log('Email sent');
-      this.router.navigate(['/auth/send-code']);
+      this.router.navigate(['/sendcode']);
     }
   }
 

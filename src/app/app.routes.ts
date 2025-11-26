@@ -19,10 +19,10 @@ export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component :Login },
     {path: 'register', component :Register },
-    {path: 'forget-password', component :ForgetPass },
-    {path: 'change-password', component :ChangePass },
-    {path: 'reset-password', component :ResetPass },
-    {path:'send-code', component:SendCode}
+    {path: 'forgetpassword', component :ForgetPass },
+    {path: 'changepassword', component :ChangePass },
+    {path: 'resetpassword', component :ResetPass },
+    {path:'sendcode', component:SendCode}
   ]},
 
   {

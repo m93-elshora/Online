@@ -49,10 +49,10 @@ export class Register implements OnInit  {
     if (this.authForm.valid || !this.isloading) {
       this.auth.register(this.authForm.value).subscribe({
         next: (res) => {
-          console.log(res);
+
           this.isloading = true;
           if (res.message == 'success') {
-            this.router.navigate(['/Login']);
+            this.router.navigate(['/login']);
           }
         },
         error: (error) => {

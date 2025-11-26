@@ -28,15 +28,16 @@ export class ChangePass {
     if (this.authForm.valid || !this.isloading) {
       this.auth.changePassword(this.authForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isloading = true;
           if (res.message == 'success') {
             this.router.navigate(['/home']);
           }
         },
-        error: (error) => {
-          console.log(error);
+        error: (err) => {
           this.isloading = true;
+          if(err.message == 'falid') {
+          this.router.navigate(['/login'])
+          }
         },
       });
     }

@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth } from '../../services/auth';
+import { ValidtionMassg } from "../../../../../shared/components/validtion-massg/validtion-massg";
 
 @Component({
   selector: 'app-reset-pass',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ValidtionMassg],
   templateUrl: './reset-pass.html',
   styleUrl: './reset-pass.css',
 })
@@ -17,7 +18,7 @@ export class ResetPass {
   private readonly router = new Router();
   authForm = this.fb.group({
     newPassword: ['', [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)]],
-    confirmPassword: ['', [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)]],
+    confirmPassword: ['', [Validators.required, ]],
   }, { validators: this.passwordMatchValidator });
 
   passwordMatchValidator(control: any) {

@@ -15,7 +15,7 @@
           }
 
           @if(controls?.getError('pattern')) {
-            
+
           <li>Passwords do not match</li>
           <li>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</li>
           }
@@ -27,6 +27,30 @@
       }
 
       @if (controls?.getError('mismatch') && controls?.get('rePassword')) {
+      <div class="bg-red-100 border my-3 border-red-400 text-red-600 px-4 py-3 rounded relative">
+        <ul class="list-disc pl-5">
+          <li>Passwords do not match</li>
+        </ul>
+      </div>
+      }
+
+
+         @if(controls?.errors && controls?.touched&&!controls?.get('rePassword') ) {
+      <div class="bg-red-100 border my-3 border-red-400 text-red-600 px-4 py-3 rounded relative">
+        <ul class="list-disc pl-5">
+          @if(controls?.getError('required')) {
+          <li>This field is required</li>
+          }
+          @if(controls?.getError('pattern')) {
+          <li>Passwords do not match</li>
+          <li>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</li>
+          }
+
+        </ul>
+      </div>
+      }
+
+      @if (controls?.getError('mismatch') && controls?.get('confirmPassword')) {
       <div class="bg-red-100 border my-3 border-red-400 text-red-600 px-4 py-3 rounded relative">
         <ul class="list-disc pl-5">
           <li>Passwords do not match</li>

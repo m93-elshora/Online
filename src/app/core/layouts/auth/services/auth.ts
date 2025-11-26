@@ -1,5 +1,5 @@
 import { environment } from '../../../../shared/environments/enviroments.prod';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Auth {
-  constructor(private readonly httpClient:HttpClient) {}
+private readonly httpClient = inject(HttpClient)
+
+constructor() {
+
+}
 
   register(data: any): Observable<any> {
     return this.httpClient.post(environment.baseUrl + '/auth/signup', data);

@@ -24,7 +24,7 @@ export class SendCode {
     if (this.authForm.valid || !this.isloading) {
       this.auth.sendCode(this.authForm.value).subscribe({
         next: (res) => {
-          console.log(res);
+          
           this.isloading = true;
           if (res.message == 'success') {
             this.router.navigate(['/home']);

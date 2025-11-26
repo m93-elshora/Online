@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../services/auth';
@@ -12,7 +12,7 @@ import { ValidtionMassg } from "../../../../../shared/components/validtion-massg
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login {
+export class Login implements OnInit {
 
     resMsg: string = '';
   isloading = true;
@@ -43,8 +43,10 @@ export class Login {
           }
         },
         error: (error) => {
-          console.log(error);
           this.isloading = true;
+          if(error.message == 'faild'){
+            this.router.navigate(['/register'])
+          }
         },
       });
     }
@@ -55,5 +57,9 @@ showPassword(){
   this.isShowPassword = !this.isShowPassword;
 }
 
+
+ngOnInit(): void {
+  this.authForm.reset()
+}
 
 }
